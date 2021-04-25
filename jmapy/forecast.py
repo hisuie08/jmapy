@@ -11,7 +11,7 @@ from .areas import Pops, Temps, Weathers
 from .request import _get_json
 
 
-def get_forecast(area_code: int | str, raw: bool = False):
+def get_forecast(area_code: str, raw: bool = False):
     if type(raw) is not bool:
         raise TypeError(f"raw argument must be bool, not {type(raw).__name__}")
     forecast = _get_json(
