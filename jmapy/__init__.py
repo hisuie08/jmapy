@@ -1,5 +1,4 @@
-from .forecast import get_forecast
-from .weekly_forecast import get_weekly_forecast
+from .jma import JMA
 
 __title__ = "jmapy"
 __author__ = "AttoCat"
