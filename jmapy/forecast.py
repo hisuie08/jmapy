@@ -8,13 +8,13 @@ from dacite import Config, from_dict
 from humps import decamelize
 
 from .areas import Pops, Temps, Weathers
-from .request import _jma_get
+from .request import _get_json
 
 
 def get_forecast(area_code: int | str, raw: bool = False):
     if type(raw) is not bool:
         raise TypeError(f"raw argument must be bool, not {type(raw).__name__}")
-    forecast = _jma_get(
+    forecast = _get_json(
         f"/forecast/data/forecast/{area_code}.json")[0]
     if raw:
         return forecast

@@ -9,13 +9,13 @@ from humps import decamelize
 
 from .areas import (WeeklyPops, WeeklyPrecipAverage, WeeklyTempAverage,
                     WeeklyTemps)
-from .request import _jma_get
+from .request import _get_json
 
 
 def get_weekly_forecast(area_code: int | str, raw: bool = False):
     if type(raw) is not bool:
         raise TypeError(f"raw argument must be bool, not {type(raw).__name__}")
-    weekly_forecast = _jma_get(
+    weekly_forecast = _get_json(
         f"/forecast/data/forecast/{area_code}.json")[1]
     if raw:
         return weekly_forecast
